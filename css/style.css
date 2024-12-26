@@ -1,0 +1,383 @@
+/* basic rules */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Use Poppins font */
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+}
+
+:root {
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: #fff;
+  --main-color: #0ef;
+  --main-color: #f37bb7;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+ul {
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.container {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* basic rules */
+
+/* start header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: 100;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+header .container .logo {
+  font-size: 2.7rem;
+  color: var(--text-color);
+  font-weight: 600;
+  cursor: default;
+  letter-spacing: 2;
+}
+
+header .container nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header .container nav .hamburger {
+  display: none;
+  font-size: 3.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+header .container nav ul {
+  display: flex;
+  align-items: center;
+}
+
+header .container nav li a {
+  font-size: 1.8rem;
+  margin-left: 3.5rem;
+  color: var(--text-color);
+  border-bottom: 1px solid transparent;
+  transition: 0.5s;
+}
+
+header .container nav li a.active,
+header .container nav li a:hover {
+  color: var(--main-color);
+}
+
+header .container nav .close {
+  display: none;
+  font-size: 3.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+@media (max-width: 999px) {
+  header .container nav .hamburger {
+    display: block;
+  }
+
+  header .container nav ul {
+    display: none;
+  }
+
+  header .container nav ul.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    background-color: var(--second-bg-color);
+    width: 50vw;
+    align-items: stretch;
+  }
+
+  header .container nav ul li {
+    padding: 20px;
+    border-bottom: 2px solid #ffffff;
+  }
+
+  header .container nav .hamburger.hide {
+    display: none;
+  }
+
+  header .container nav .close.show {
+    display: block;
+  }
+}
+
+/* end header */
+
+/* start section home */
+.home {
+  height: 100vh;
+}
+
+.home .container {
+  overflow: hidden;
+  /* background-color: brown; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  /* flex-direction: row-reverse; */
+}
+
+.home .container .pic {
+  flex-basis: 40%;
+  position: relative;
+  height: 100%;
+}
+.home .container .pic img {
+  /* width: 35vw; */
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 80px;
+  left: -20px;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  animation: fadeIn 3s ease-out forwards;
+}
+.home-content {
+  flex-basis: 60%;
+  padding-top: 10%;
+}
+.home-content h3 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.home-content h1 {
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: 3.7rem;
+  text-transform: uppercase;
+}
+
+.home #typed-text {
+  color: var(--main-color);
+}
+
+.typed-cursor {
+  color: var(--main-color);
+}
+
+.home .home-content .social {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.home .home-content .social i {
+  font-size: 25px;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.home .social a {
+  text-decoration: none;
+  color: white;
+}
+
+.home .home-content .btn-down {
+  margin-top: 30px;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  background-color: var(--main-color);
+  border-radius: 25px;
+  display: block;
+  width: 180px;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 1rem var(--main-color);
+}
+
+@media (max-width: 999px) {
+  .home {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .home .container {
+    flex-direction: column-reverse;
+    min-height: 100vh;
+    height: auto;
+    margin-top: 90px;
+  }
+
+  .home .container .home-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .home .container .pic {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.753);
+    flex-basis: auto;
+    overflow: hidden;
+  }
+
+  .home .container .pic img {
+    position: static;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-content {
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* end section home */
+
+/* <!-- start about --> */
+
+.about {
+  background-color: var(--second-bg-color);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.about .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: inherit;
+}
+
+.about .container .about-img {
+  flex-basis: 40%;
+  overflow: hidden;
+  height: 300px;
+}
+
+.about .container .about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about .container .about-content {
+  flex-basis: 60%;
+}
+
+.about .container .about-content .heading {
+  text-align: center;
+  font-size: 4.5rem;
+  margin-bottom: 26px;
+}
+
+.about .container .about-content .heading h2 {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.about .container .about-content .heading span {
+  color: var(--main-color);
+}
+.about .container .about-content p {
+  font-size: 1.6rem;
+}
+
+.about .container .about-content ul li span {
+  font-size: 1.6rem;
+}
+
+.about .container .about-content ul li i {
+  font-size: 1.9rem;
+  margin-right: 10px;
+}
+
+.about .container .about-content ul li {
+  margin-top: 7px;
+}
+
+@media (max-width: 999px) {
+  .about .container .about-img {
+    display: none;
+  }
+
+  .about .container .about-content {
+    flex-basis: 100%;
+  }
+}
+/* <!-- end about --> */
